@@ -13,11 +13,9 @@ public class AttendanceRecordService {
     @Autowired
     private AttendanceRecordRepository attendanceRecordRepository;
 
-
     public AttendanceRecordEntity createAttendanceRecord(AttendanceRecordEntity attendanceRecord) {
         return attendanceRecordRepository.save(attendanceRecord);
     }
-
 
     public List<AttendanceRecordEntity> getAttendanceRecordsForEmployeeAndDate(Long employeeId, LocalDate date) {
         return attendanceRecordRepository.findByEmployeeIdAndDate(employeeId, date);
