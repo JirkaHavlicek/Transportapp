@@ -23,6 +23,7 @@ public class EmployeeEntity {
     @Column(nullable = false)
     private Date birthdate;
 
+    // TODO: 13.08.2023 Calculate from birthdate, someone cud made mistake.
     @Column(nullable = false)
     private int age;
 
