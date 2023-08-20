@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+// TODO: 13.08.2023 Authentication https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/index.html
+//  - https://www.baeldung.com/spring-boot-api-key-secret
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;

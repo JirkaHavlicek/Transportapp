@@ -10,11 +10,26 @@
     <packaging>pom</packaging>
 
 
+
     <modules>
         <module>Customers_module</module>
         <module>Hr_module</module>
         <module>Rosters_module</module>
         <module>Warehouse_module</module>
     </modules>
+    <properties>
+        <maven.compiler.source>20</maven.compiler.source>
+        <maven.compiler.target>20</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>3.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
 
 </project>
