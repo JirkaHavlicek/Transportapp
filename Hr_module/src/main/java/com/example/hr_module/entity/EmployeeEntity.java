@@ -6,12 +6,12 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Entity
+@Entity(name = "employee")
 @Getter
 @Setter
 public class EmployeeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "employee_seq", sequenceName = "employee_seq", allocationSize = 1)
     private Long id;
 
     @Column(nullable = false)

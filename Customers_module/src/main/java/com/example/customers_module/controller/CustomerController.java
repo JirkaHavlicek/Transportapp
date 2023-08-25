@@ -26,13 +26,13 @@ public class CustomerController {
     }
 
     @PostMapping({"/auth", "/auth/"})
-    public CustomerDTO login(@RequestBody @Valid CustomerDTO userDTO, HttpServletRequest req) throws ServletException {
-        req.login(userDTO.getEmail(), userDTO.getPassword());
+    public CustomerDTO login(@RequestBody @Valid CustomerDTO customerDTO, HttpServletRequest req) throws ServletException {
+        req.login(customerDTO.getEmail(), customerDTO.getPassword());
 
         CustomerEntity user = (CustomerEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         CustomerDTO model = new CustomerDTO();
         model.setEmail(user.getEmail());
-        model.setUserId(user.getUserId());
+        model.setUserId(user.getCustomerId());
         model.setAdmin(user.isAdmin());
         return model;
     }
@@ -44,13 +44,13 @@ public class CustomerController {
     }
 
     @GetMapping({"/auth", "/auth/"})
-    public CustomerDTO getCurrentUser() throws ServletException {
+    public CustomerDTO getCurrentCustomer() throws ServletException {
         try {
             CustomerEntity user = (CustomerEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
             CustomerDTO model = new CustomerDTO();
             model.setEmail(user.getEmail());
-            model.setUserId(user.getUserId());
+            model.setUserId(user.getCustomerId());
             model.setAdmin(user.isAdmin());
             return model;
         } catch (ClassCastException e) {

@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
-public class OrderMapper {
+public interface OrderMapper {
 
     OrderEntity toEntity(OrderDTO source);
 

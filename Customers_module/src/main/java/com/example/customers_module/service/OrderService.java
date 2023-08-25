@@ -11,11 +11,11 @@ import java.util.List;
 @Service
 public interface OrderService {
 
-    OrderDTO addOrder(OrderDTO movieDTO);
+    OrderDTO addOrder(OrderDTO orderDTO);
 
-    List<OrderDTO> getAllMOrders(OrderFilter movieFilter);
+    List<OrderDTO> getAllOrders(OrderFilter orderFilter);
 
-    OrderDTO editOrder(OrderDTO movieDTO, long id);
+    OrderDTO editOrder(OrderDTO orderDTO, long id);
 
     OrderDTO removeOrder(Long id);
 

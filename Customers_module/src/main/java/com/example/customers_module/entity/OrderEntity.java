@@ -5,20 +5,19 @@ import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "order")
 @Getter
 @Setter
 public class OrderEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @SequenceGenerator(name = "order_seq", sequenceName = "order_seq", allocationSize = 1)
+    private Long orderId;
 
-
-    // Ordering party
     @ManyToOne
-    private CustomerEntity customer;
-    private String transportPayer;
+    @JoinColumn(name = "customer_id")
+    private CustomerEntity customerId;
 
+    private String transportPayer;
 
     // Sender details
     private LocalDateTime loadingDate;
@@ -62,13 +61,16 @@ public class OrderEntity {
     private String recipientStreet;
 
     @Column(nullable = false)
+    private int recipientHouseNumber;
+
+    @Column(nullable = false)
     private String recipientCity;
 
     @Column(nullable = false)
-    private String recipientPostalCode;
+    private int recipientPostalCode;
 
     @Column(nullable = false)
-    private String recipientPhoneNumber;
+    private int recipientPhoneNumber;
 
     @Column(nullable = false)
     private String recipientEmail;

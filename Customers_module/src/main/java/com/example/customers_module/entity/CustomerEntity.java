@@ -11,13 +11,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
-@Entity(name = "users")
+@Entity(name = "customer")
 @Getter
 @Setter
 public class CustomerEntity implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(name = "customer_seq", sequenceName = "customer_seq", allocationSize = 1)
     private long customerId;
 
     @Column(nullable = false, unique = true)
