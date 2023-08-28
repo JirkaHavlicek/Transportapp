@@ -29,11 +29,11 @@ public class CustomerController {
     public CustomerDTO login(@RequestBody @Valid CustomerDTO customerDTO, HttpServletRequest req) throws ServletException {
         req.login(customerDTO.getEmail(), customerDTO.getPassword());
 
-        CustomerEntity user = (CustomerEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        CustomerEntity customer = (CustomerEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         CustomerDTO model = new CustomerDTO();
-        model.setEmail(user.getEmail());
-        model.setUserId(user.getCustomerId());
-        model.setAdmin(user.isAdmin());
+        model.setEmail(customer.getEmail());
+        model.setCustomerId(customer.getCustomerId());
+        model.setAdmin(customer.isAdmin());
         return model;
     }
 
@@ -46,12 +46,12 @@ public class CustomerController {
     @GetMapping({"/auth", "/auth/"})
     public CustomerDTO getCurrentCustomer() throws ServletException {
         try {
-            CustomerEntity user = (CustomerEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            CustomerEntity customer = (CustomerEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
             CustomerDTO model = new CustomerDTO();
-            model.setEmail(user.getEmail());
-            model.setUserId(user.getCustomerId());
-            model.setAdmin(user.isAdmin());
+            model.setEmail(customer.getEmail());
+            model.setCustomerId(customer.getCustomerId());
+            model.setAdmin(customer.isAdmin());
             return model;
         } catch (ClassCastException e) {
             throw new ServletException();

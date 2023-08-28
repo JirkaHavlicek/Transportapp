@@ -10,7 +10,8 @@ import java.time.LocalDateTime;
 @Setter
 public class OrderEntity {
     @Id
-    @SequenceGenerator(name = "order_seq", sequenceName = "order_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderId_seq_gen")
+    @SequenceGenerator(name = "orderId_seq_gen", sequenceName = "orderId_id_seq")
     private Long orderId;
 
     @ManyToOne
@@ -26,18 +27,30 @@ public class OrderEntity {
     private String loadingAddress;
 
     @Column(nullable = false)
+    private String loadingStreet;
+
+    @Column(nullable = false)
+    private int loadingHouseNumber;
+
+    @Column(nullable = false)
+    private String loadingCity;
+
+    @Column(nullable = false)
+    private int loadingPostalCode;
+
+    @Column(nullable = false)
     private String loadingContactPerson;
 
     @Column(nullable = false)
-    private String loadingContactPhone;
+    private int loadingContactPhone;
 
     private int accountNumber;
     private int variableSymbol;
-    private int CashOnDelivery;
+    private int cashOnDelivery;
 
     // Package details
     private int itemCount;
-    private int packaging;
+    private String packaging;
     @Column(nullable = false)
     private double totalWeight;
 

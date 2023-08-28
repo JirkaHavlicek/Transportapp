@@ -15,7 +15,11 @@ public class OrderDTO {
     private String transportPayer;
 
     private LocalDateTime loadingDate;
-    private String loadingAddress;
+    private String loadingStreet;
+    private int loadingHouseNumber;
+    private String loadingCity;
+    private String loadingPostalCode;
+
     private String loadingContactPerson;
     private String loadingContactPhone;
 
@@ -44,5 +48,5 @@ public class OrderDTO {
 
     private String note;
 
-    private CustomerDTO customerId;
+    private Long customerId;
 }
