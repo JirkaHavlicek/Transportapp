@@ -21,7 +21,6 @@ public class OrderController {
     private OrderServiceImpl orderService;
 
 
-    @Secured("ROLE_ADMIN")
     @PostMapping("/add")
     public OrderDTO addOrder(@RequestBody OrderDTO orderDTO){
         return orderService.addOrder(orderDTO);

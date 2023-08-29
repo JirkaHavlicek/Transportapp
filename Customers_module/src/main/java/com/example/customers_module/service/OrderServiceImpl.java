@@ -1,5 +1,6 @@
 package com.example.customers_module.service;
 
+import com.example.customers_module.entity.CustomerEntity;
 import com.example.customers_module.entity.repository.CustomerRepository;
 import com.example.customers_module.dto.OrderDTO;
 import com.example.customers_module.dto.mapper.OrderMapper;
@@ -53,7 +54,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private void mapCustomerToOrder(OrderEntity order, OrderDTO orderDTO){
-        order.setCustomerId(customerRepository.getReferenceById(orderDTO.getCustomerId()));
+        CustomerEntity customer = customerRepository.findById(orderDTO.getCustomerId())
+                .orElseThrow(EntityNotFoundException::new);
+        order.setCustomerId(customer);
 
     }
 

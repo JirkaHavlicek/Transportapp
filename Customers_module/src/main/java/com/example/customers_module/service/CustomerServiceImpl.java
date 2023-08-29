@@ -34,7 +34,7 @@ public class CustomerServiceImpl implements CustomerService {
             entity = customerRepository.save(entity);
 
             CustomerDTO dto = new CustomerDTO();
-            dto.setUserId(entity.getCustomerId());
+            dto.setCustomerId(entity.getCustomerId());
             dto.setEmail(entity.getEmail());
             return dto;
         } catch (DataIntegrityViolationException e) {

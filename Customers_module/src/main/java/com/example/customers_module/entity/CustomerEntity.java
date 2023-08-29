@@ -17,7 +17,8 @@ import java.util.List;
 public class CustomerEntity implements UserDetails {
 
     @Id
-    @SequenceGenerator(name = "customer_seq", sequenceName = "customer_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customerId_seq_gen")
+    @SequenceGenerator(name = "customerId_seq_gen", sequenceName = "customerId_id_seq")
     private long customerId;
 
     @Column(nullable = false, unique = true)
