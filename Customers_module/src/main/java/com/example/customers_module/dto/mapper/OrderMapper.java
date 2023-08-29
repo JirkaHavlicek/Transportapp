@@ -1,6 +1,7 @@
 package com.example.customers_module.dto.mapper;
 
 import com.example.customers_module.dto.OrderDTO;
+import com.example.customers_module.entity.CustomerEntity;
 import com.example.customers_module.entity.OrderEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -14,5 +15,7 @@ public interface OrderMapper {
     void updateEntity(OrderDTO source, @MappingTarget OrderEntity target);
 
     OrderDTO toDTO(OrderEntity source);
+
 }
+
 

@@ -15,7 +15,7 @@ public class OrderEntity {
     private Long orderId;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinTable (name = "customer")
     private CustomerEntity customerId;
 
     private String transportPayer;
@@ -89,9 +89,5 @@ public class OrderEntity {
     private String recipientEmail;
 
     private String note;
-
-
-
-
 
 }
