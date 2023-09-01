@@ -1,0 +1,23 @@
+{
+  "email": "eamogan5@gmail.com",
+  "password": "Liberec6",
+  "_customerId": 0,
+  "isAdmin": true
+}
+{
+  "email": "test@example.com",
+  "password": "Test555888",
+  "_customerId": 0,
+  "isAdmin": false
+}
+{
+  "transportPayer": "Hovnous",
+  "customerID": 1,
+  "customer": {
+    "email": "string",
+    "password": "string",
+    "_customerId": 0,
+    "isAdmin": true
+  },
+  "_orderId": 0
+}
