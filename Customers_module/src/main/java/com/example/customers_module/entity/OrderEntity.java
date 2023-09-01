@@ -15,79 +15,48 @@ public class OrderEntity {
     private Long orderId;
 
     @ManyToOne
-    @JoinTable (name = "customer")
-    private CustomerEntity customerId;
+    private CustomerEntity customer;
 
     private String transportPayer;
 
     // Sender details
-    private LocalDateTime loadingDate;
-
-    @Column(nullable = false)
-    private String loadingAddress;
-
-    @Column(nullable = false)
-    private String loadingStreet;
-
-    @Column(nullable = false)
-    private int loadingHouseNumber;
-
-    @Column(nullable = false)
-    private String loadingCity;
-
-    @Column(nullable = false)
-    private int loadingPostalCode;
-
-    @Column(nullable = false)
-    private String loadingContactPerson;
-
-    @Column(nullable = false)
-    private int loadingContactPhone;
-
-    private int accountNumber;
-    private int variableSymbol;
-    private int cashOnDelivery;
-
-    // Package details
-    private int itemCount;
-    private String packaging;
-    @Column(nullable = false)
-    private double totalWeight;
-
-    private String contentDescription;
-    private double packageValue;
-
-    @Column(nullable = false)
-    private int length;
-
-    @Column(nullable = false)
-    private int width;
-
-    @Column(nullable = false)
-    private int height;
-
-    // Recipient details
-    @Column(nullable = false)
-    private String recipientName;
-
-    @Column(nullable = false)
-    private String recipientStreet;
-
-    @Column(nullable = false)
-    private int recipientHouseNumber;
-
-    @Column(nullable = false)
-    private String recipientCity;
-
-    @Column(nullable = false)
-    private int recipientPostalCode;
-
-    @Column(nullable = false)
-    private int recipientPhoneNumber;
-
-    @Column(nullable = false)
-    private String recipientEmail;
-
-    private String note;
+//    private LocalDateTime loadingDate;
+//    private String loadingAddress;
+//    private String loadingStreet;
+//    private int loadingHouseNumber;
+//    private String loadingCity;
+//    private int loadingPostalCode;
+//    private int loadingContactPerson;
+//    private int loadingContactPhone;
+//
+//    private int accountNumber;
+//    private int variableSymbol;
+//    private int cashOnDelivery;
+//
+//    // Package details
+//    private int itemCount;
+//    private String packaging;
+//
+//    private double totalWeight;
+//
+//    private String contentDescription;
+//    private double packageValue;
+//
+//    private int length;
+//
+//    private int width;
+//
+//    private int height;
+//
+//    // Recipient details
+//    private String recipientName;
+//    private String recipientStreet;
+//    private int recipientHouseNumber;
+//    private String recipientCity;
+//    private int recipientPostalCode;
+//    private int recipientPhoneNumber;
+//    private String recipientEmail;
+//
+//    private String note;
 
 }

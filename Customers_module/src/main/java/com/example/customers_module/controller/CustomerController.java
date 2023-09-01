@@ -3,6 +3,7 @@ package com.example.customers_module.controller;
 import com.example.customers_module.dto.CustomerDTO;
 import com.example.customers_module.entity.CustomerEntity;
 import com.example.customers_module.service.CustomerService;
+import com.example.customers_module.service.CustomerServiceImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
@@ -18,10 +19,10 @@ import org.springframework.web.bind.annotation.*;
 public class CustomerController {
 
     @Autowired
-    private CustomerService customerService;
+    private CustomerServiceImpl customerService;
 
-    @PostMapping({"/customer","/customer/"})
-    public CustomerDTO addCustomer(@RequestBody @Valid CustomerDTO customerDTO){
+    @PostMapping({"/customer", "/customer/"})
+    public CustomerDTO addCustomer(@RequestBody @Valid CustomerDTO customerDTO) {
         return customerService.create(customerDTO);
     }
 
@@ -57,8 +58,14 @@ public class CustomerController {
             throw new ServletException();
         }
     }
+
     @ExceptionHandler(ServletException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public void handleServletException() {
+    }
+
+    @GetMapping({"/customer/{customerId}", "/customer/{customerId}/"})
+    public CustomerDTO getCustomer(@PathVariable Long customerId) {
+        return customerService.getCustomer(customerId);
     }
 }

@@ -2,6 +2,7 @@ package com.example.customers_module.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.Order;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -60,4 +61,7 @@ public class CustomerEntity implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    @OneToMany(mappedBy = "customer")
+    private List<OrderEntity>customersOrder;
 }

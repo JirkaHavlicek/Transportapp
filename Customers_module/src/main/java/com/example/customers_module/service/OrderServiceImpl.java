@@ -5,13 +5,13 @@ import com.example.customers_module.entity.repository.CustomerRepository;
 import com.example.customers_module.dto.OrderDTO;
 import com.example.customers_module.dto.mapper.OrderMapper;
 import com.example.customers_module.entity.OrderEntity;
-import com.example.customers_module.entity.filter.OrderFilter;
 import com.example.customers_module.entity.repository.OrderRepository;
-import com.example.customers_module.entity.repository.specification.OrderSpecification;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,13 +34,11 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.toDTO(saved);
     }
 
-    public List<OrderDTO> getAllOrders(OrderFilter orderFilter){
-        OrderSpecification orderSpecification = new OrderSpecification(orderFilter);
-
-        return orderRepository.findAll(orderSpecification, PageRequest.of(0, orderFilter.getLimit()))
-                .stream()
-                .map(orderMapper::toDTO)
-                .collect(Collectors.toList());
+    public List<OrderDTO> getAllOrders(){
+       return orderRepository.findAll()
+               .stream()
+               .map(orderMapper::toDTO)
+               .collect(Collectors.toList());
     }
 
     public OrderDTO editOrder(OrderDTO orderDTO, long id){
@@ -54,10 +52,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     private void mapCustomerToOrder(OrderEntity order, OrderDTO orderDTO){
-        CustomerEntity customer = customerRepository.findById(orderDTO.getCustomerId())
+        CustomerEntity customer = customerRepository.findById(orderDTO.getCustomerID())
                 .orElseThrow(EntityNotFoundException::new);
-        order.setCustomerId(customer);
-
+        order.setCustomer(customer);
     }
 
     public OrderDTO removeOrder(Long id){

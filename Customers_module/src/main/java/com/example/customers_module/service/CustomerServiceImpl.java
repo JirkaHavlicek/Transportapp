@@ -1,6 +1,8 @@
 package com.example.customers_module.service;
 
+import com.example.customers_module.dto.mapper.CustomerMapper;
 import com.example.customers_module.dto.CustomerDTO;
+import com.example.customers_module.dto.mapper.CustomerMapper;
 import com.example.customers_module.entity.CustomerEntity;
 import com.example.customers_module.entity.repository.CustomerRepository;
 import com.example.customers_module.service.exceptions.DuplicateEmailException;
@@ -22,6 +24,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private CustomerMapper customerMapper;
 
 
     @Override
@@ -46,5 +51,9 @@ public class CustomerServiceImpl implements CustomerService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return customerRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username, " + username + " not found"));
+    }
+    public CustomerDTO getCustomer(Long customerId) {
+        CustomerEntity customer = customerRepository.getReferenceById(customerId);
+        return customerMapper.toDTO(customer);
     }
 }
