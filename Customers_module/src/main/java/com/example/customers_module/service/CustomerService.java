@@ -9,4 +9,6 @@ public interface CustomerService extends UserDetailsService {
 
     CustomerDTO create(CustomerDTO model);
 
+    CustomerDTO getCustomer(Long customerId);
+
 }

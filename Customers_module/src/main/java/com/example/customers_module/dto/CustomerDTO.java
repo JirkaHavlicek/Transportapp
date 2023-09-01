@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class CustomerDTO {
 
-    @JsonProperty("_id")
+    @JsonProperty("_customerId")
     private long customerId;
 
     @Email

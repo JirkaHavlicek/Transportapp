@@ -2,7 +2,6 @@ package com.example.customers_module.service;
 
 
 import com.example.customers_module.dto.OrderDTO;
-import com.example.customers_module.entity.filter.OrderFilter;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +12,7 @@ public interface OrderService {
 
     OrderDTO addOrder(OrderDTO orderDTO);
 
-    List<OrderDTO> getAllOrders(OrderFilter orderFilter);
+    List<OrderDTO> getAllOrders();
 
     OrderDTO editOrder(OrderDTO orderDTO, long id);
 
