@@ -5,17 +5,17 @@ import lombok.Getter;
 import lombok.Setter;
 import java.time.LocalDateTime;
 
-@Entity(name = "order")
+@Entity(name = "orders")
 @Getter
 @Setter
 public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "orderId_seq_gen")
     @SequenceGenerator(name = "orderId_seq_gen", sequenceName = "orderId_id_seq")
-    private Long orderId;
+    private Long id;
 
     @ManyToOne
-    private CustomerEntity customer;
+    private CustomerEntity customers;
 
     private String transportPayer;
 

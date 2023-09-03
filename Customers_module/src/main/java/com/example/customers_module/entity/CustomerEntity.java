@@ -20,7 +20,7 @@ public class CustomerEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customerId_seq_gen")
     @SequenceGenerator(name = "customerId_seq_gen", sequenceName = "customerId_id_seq")
-    private long customerId;
+    private long id;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -62,6 +62,6 @@ public class CustomerEntity implements UserDetails {
         return true;
     }
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customers")
     private List<OrderEntity>customersOrder;
 }

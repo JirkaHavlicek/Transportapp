@@ -33,7 +33,7 @@ public class CustomerController {
         CustomerEntity customer = (CustomerEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         CustomerDTO model = new CustomerDTO();
         model.setEmail(customer.getEmail());
-        model.setCustomerId(customer.getCustomerId());
+        model.setId(customer.getId());
         model.setAdmin(customer.isAdmin());
         return model;
     }
@@ -51,7 +51,7 @@ public class CustomerController {
 
             CustomerDTO model = new CustomerDTO();
             model.setEmail(customer.getEmail());
-            model.setCustomerId(customer.getCustomerId());
+            model.setId(customer.getId());
             model.setAdmin(customer.isAdmin());
             return model;
         } catch (ClassCastException e) {
