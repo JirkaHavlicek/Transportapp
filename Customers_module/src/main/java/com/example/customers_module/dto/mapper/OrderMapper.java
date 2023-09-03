@@ -10,14 +10,15 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring")
 public interface OrderMapper {
 
-    @Mapping(target = "customer", ignore = true)
+    @Mapping(target = "customers", ignore = true)
     OrderEntity toEntity(OrderDTO source);
 
-    @Mapping(target = "customer", ignore = true)
+    @Mapping(target = "customerIDs", source = "customers.id")
+    OrderDTO toDTO(OrderEntity source);
+
+    @Mapping(target = "customers", ignore = true)
     void updateEntity(OrderDTO source, @MappingTarget OrderEntity target);
 
-    @Mapping(target = "customerID", source = "customer.customerId")
-    OrderDTO toDTO(OrderEntity source);
 
 }
 

@@ -42,7 +42,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public OrderDTO editOrder(OrderDTO orderDTO, long id){
-        orderDTO.setOrderId(id);
+        orderDTO.setId(id);
         OrderEntity entity = orderRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         orderMapper.updateEntity(orderDTO, entity);
 
@@ -51,10 +51,9 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.toDTO(saved);
     }
 
-    private void mapCustomerToOrder(OrderEntity order, OrderDTO orderDTO){
-        CustomerEntity customer = customerRepository.findById(orderDTO.getCustomerID())
-                .orElseThrow(EntityNotFoundException::new);
-        order.setCustomer(customer);
+    private void mapCustomerToOrder(OrderEntity order, OrderDTO orderDTO) {
+        order.setCustomers(customerRepository.getReferenceById(orderDTO.getCustomerIDs()));
+
     }
 
     public OrderDTO removeOrder(Long id){

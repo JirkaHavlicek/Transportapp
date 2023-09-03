@@ -3,6 +3,7 @@ package com.example.customers_module.dto;
 import java.time.LocalDateTime;
 import com.example.customers_module.entity.CustomerEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 
@@ -10,11 +11,12 @@ import lombok.Data;
 @Data
 public class OrderDTO {
 
+    @NotNull
+    @JsonProperty("_id")
+    private long id;
 
-    @JsonProperty("_orderId")
-    private long orderId;
-
-    private Long customerID;
+    @NotNull
+    private Long customerIDs;
 
     private String transportPayer;
 
@@ -54,6 +56,6 @@ public class OrderDTO {
 //    private String note;
 
 
-    private CustomerDTO customer;
+    private CustomerDTO customers;
 
 }

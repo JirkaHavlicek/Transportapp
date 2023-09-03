@@ -11,13 +11,13 @@
   "isAdmin": false
 }
 {
-  "transportPayer": "Hovnous",
-  "customerID": 1,
-  "customer": {
+  "customerIDs": 1,
+  "transportPayer": "hovna",
+  "customers": {
     "email": "string",
     "password": "string",
-    "_customerId": 0,
+    "_id": 0,
     "isAdmin": true
   },
-  "_orderId": 0
+  "_id": 0
 }
