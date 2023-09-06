@@ -1,6 +1,7 @@
 package com.example.customers_module.controller;
 
 import com.example.customers_module.dto.CustomerDTO;
+import com.example.customers_module.dto.CustomersOrderDTO;
 import com.example.customers_module.entity.CustomerEntity;
 import com.example.customers_module.service.CustomerService;
 import com.example.customers_module.service.CustomerServiceImpl;
@@ -65,7 +66,7 @@ public class CustomerController {
     }
 
     @GetMapping({"/customer/{customerId}", "/customer/{customerId}/"})
-    public CustomerDTO getCustomer(@PathVariable Long customerId) {
+    public CustomersOrderDTO getCustomer(@PathVariable Long customerId) {
         return customerService.getCustomer(customerId);
     }
 }

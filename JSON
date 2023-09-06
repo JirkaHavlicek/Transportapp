@@ -15,9 +15,7 @@
   "transportPayer": "hovna",
   "customers": {
     "email": "string",
-    "password": "string",
     "_id": 0,
-    "isAdmin": true
   },
   "_id": 0
 }

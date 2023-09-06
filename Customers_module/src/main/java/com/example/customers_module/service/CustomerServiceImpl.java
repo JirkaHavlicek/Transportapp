@@ -1,5 +1,6 @@
 package com.example.customers_module.service;
 
+import com.example.customers_module.dto.CustomersOrderDTO;
 import com.example.customers_module.dto.mapper.CustomerMapper;
 import com.example.customers_module.dto.CustomerDTO;
 import com.example.customers_module.dto.mapper.CustomerMapper;
@@ -52,7 +53,7 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username, " + username + " not found"));
     }
-    public CustomerDTO getCustomer(Long customerId) {
+    public CustomersOrderDTO getCustomer(Long customerId) {
         CustomerEntity customer = customerRepository.getReferenceById(customerId);
         return customerMapper.toDTO(customer);
     }

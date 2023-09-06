@@ -56,6 +56,6 @@ public class OrderDTO {
 //    private String note;
 
 
-    private CustomerDTO customers;
+    private CustomersOrderDTO customers;
 
 }
